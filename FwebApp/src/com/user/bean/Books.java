@@ -5,14 +5,6 @@ public class Books {
 	private String Author;
 	private String Title;
 	
-	
-	public Books(Integer id, String author, String title) {
-		super();
-		this.id = id;
-		Author = author;
-		Title = title;
-	}
-
 
 	public Integer getId() {
 		return id;

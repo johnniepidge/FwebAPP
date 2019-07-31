@@ -8,15 +8,6 @@ public class Account {
 	private User user;
 	private Date date;
 	
-	
-	public Account(Books book, User user, Date date) {
-		super();
-		Book = book;
-		this.user = user;
-		this.date = date;
-	}
-
-
 	public Books getBook() {
 		return Book;
 	}

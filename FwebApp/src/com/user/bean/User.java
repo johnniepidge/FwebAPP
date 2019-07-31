@@ -1,26 +1,32 @@
 package com.user.bean;
 
 public class User {
+
+
 	private String Fname;
 	private String Sname;
 	private String email;
 	private String pword;
-	private boolean admin;
+	private String admin;
+	private int sNumber;
 	
-//	public User(String fname, String sname, String email, String pword, boolean admin) {
-//		super();
-//		Fname = fname;
-//		Sname = sname;
-//		this.email = email;
-//		this.pword = pword;
-//		this.admin = admin;
-//	}
+	public int getsNumber() {
+		return sNumber;
+	}
 
-	public boolean isAdmin() {
+	public void setsNumber(int sNumber) {
+		this.sNumber = sNumber;
+	}
+
+	public String getAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(boolean admin) {
+	public String isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(String admin) {
 		this.admin = admin;
 	}
 

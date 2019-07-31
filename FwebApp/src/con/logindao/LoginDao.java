@@ -24,13 +24,12 @@ public class LoginDao {
 			stat=con.createStatement();
 			rs =stat.executeQuery("SELECT * FROM JP_USERS");
 			
-				System.out.println("con esb");
 				
 		 while(rs.next()) {
 		 EmailDb = rs.getString("EMAIL");
 		 PWordDB = rs.getString("PASSWORD");
+		 
 		 if(Email.equals(EmailDb)&&Pword.equals(PWordDB)) {
-			 System.out.println("Valid email");
 			 return "Valid";
 		 }
 		 }
@@ -42,7 +41,7 @@ public class LoginDao {
 		}
 		
 		
-		return "ivalid";
+		return "Invalid";
 		
 	}
 

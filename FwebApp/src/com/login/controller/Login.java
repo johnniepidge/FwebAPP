@@ -39,10 +39,11 @@ public class Login extends HttpServlet {
 		
 try {
 	String validUser =loginDao.validateUser(user);
+	
 	if(validUser.equals("Valid")) {
-		System.out.println("Valid email");
 		HttpSession session =request.getSession();
 		session.setAttribute("USER", user);
+		
 		
 	}
 	else {
