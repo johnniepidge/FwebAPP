@@ -18,24 +18,23 @@ public class LoginDao {
 		String EmailDb ="";
 		String PWordDB ="";
 		
+		System.out.println(Email +Pword +" dao");
 		try {
 			con =DBconnect.createConnction();
 			stat=con.createStatement();
 			rs =stat.executeQuery("SELECT * FROM JP_USERS");
-			if(con!=null) {
-				
 			
+				System.out.println("con esb");
+				
 		 while(rs.next()) {
-		 EmailDb = rs.getString(Email);
-		 PWordDB = rs.getString(Pword);
+		 EmailDb = rs.getString("EMAIL");
+		 PWordDB = rs.getString("PASSWORD");
 		 if(Email.equals(EmailDb)&&Pword.equals(PWordDB)) {
+			 System.out.println("Valid email");
 			 return "Valid";
 		 }
 		 }
-		}
-			else {
-				System.out.println("null");
-			}
+
 			}
 		
 		catch(SQLException e) {

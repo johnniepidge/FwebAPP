@@ -17,7 +17,7 @@ if you are a student, academic, staff or alumni of the Dublin City university
 Login Details
 </div></p1>
 <p2>
-<form method="POST" action="/FwebApp/Login" name="mylogin">
+<form method="POST" action="<%=request.getContextPath()%>/Login" name="mylogin">
 E-mail:<br>
 <input type="email" name="emailinput" placeholder="E-Mail"><br>
 Password:<br>

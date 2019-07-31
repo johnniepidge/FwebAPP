@@ -15,13 +15,11 @@ public class DBconnect {
 		String password ="ee_pass";
 		String username ="ee_user";
 		
+		
 		try {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		}	
-		catch(ClassNotFoundException e) {
-			e.printStackTrace();
-		}
+			System.out.println();
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+	
 		con=DriverManager.getConnection(url,username,password);
 				System.out.println("Connection esbtablished" +con );
 		}
@@ -29,6 +27,6 @@ public class DBconnect {
 			e.printStackTrace();
 			
 		}
-		return null;
+		return con;
 	}
 }
