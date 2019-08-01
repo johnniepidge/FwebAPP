@@ -40,12 +40,20 @@ public class Login extends HttpServlet {
 try {
 	String validUser =loginDao.validateUser(user);
 	
-	if(validUser.equals("Valid")) {
+	if(validUser.equals("ValidU")) {
 		HttpSession session =request.getSession();
 		session.setAttribute("USER", user);
 		
+		request.getRequestDispatcher("/JSP/UserPg.jsp").forward(request, response);;
 		
 	}
+	else if(validUser.equals("ValidA")) {
+		HttpSession session =request.getSession();
+		session.setAttribute("ADMIN", user);
+		
+		
+	}
+	
 	else {
 		System.out.println("Invalid");
 	}

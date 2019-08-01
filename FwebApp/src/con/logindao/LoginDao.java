@@ -17,8 +17,10 @@ public class LoginDao {
 		
 		String EmailDb ="";
 		String PWordDB ="";
+		String RoleDB = "";
 		
 		System.out.println(Email +Pword +" dao");
+		
 		try {
 			con =DBconnect.createConnction();
 			stat=con.createStatement();
@@ -28,13 +30,21 @@ public class LoginDao {
 		 while(rs.next()) {
 		 EmailDb = rs.getString("EMAIL");
 		 PWordDB = rs.getString("PASSWORD");
+		 RoleDB =rs.getString("ROLE");
 		 
-		 if(Email.equals(EmailDb)&&Pword.equals(PWordDB)) {
-			 return "Valid";
-		 }
-		 }
+		 
+		 if(Email.equals(EmailDb)&&Pword.equals(PWordDB)&&"user".equals(RoleDB)) {
+			 System.out.println("valid u");
+			 return "ValidU";
+		 		}
 
-			}
+		 else if(Email.equals(EmailDb)&&Pword.equals(PWordDB)&&"admin".equals(RoleDB)) {
+			 System.out.println("valid admin");
+			 return "ValidA";
+	 		}
+		 	}
+
+		}
 		
 		catch(SQLException e) {
 			e.printStackTrace();
