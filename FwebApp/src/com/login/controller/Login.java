@@ -43,7 +43,6 @@ try {
 	if(validUser.equals("ValidU")) {
 		HttpSession session =request.getSession();
 		session.setAttribute("USER", user);
-		
 		request.getRequestDispatcher("/JSP/UserPg.jsp").forward(request, response);;
 		
 	}

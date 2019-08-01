@@ -25,7 +25,7 @@ public class BookDao {
 		catch (Exception e) {
 		e.printStackTrace();
 		}
-		
+		System.out.println(book.equals("ID"));
 	return book;
 }
 }
