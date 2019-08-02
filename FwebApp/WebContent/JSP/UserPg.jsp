@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>User</title>
-<link rel="stylesheet" type="text\css" href="<%=request.getContextPath()%>/CSS/Lout.css">
+<link rel="stylesheet" type="text/css" href="/FwebApp/CSS/Lout.css">
 <%@page import="jp.util.DBconnect,java.sql.*,java.util.List,jp.beans.Books,jp.model.BookDao" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
