@@ -1,4 +1,4 @@
-package com.user.bean;
+package jp.beans;
 
 public class Books {
 	private Integer id;

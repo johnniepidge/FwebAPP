@@ -1,14 +1,14 @@
-package com.con.util;
+package jp.util;
 
 import java.sql.*;
 import java.util.Vector;
 
-import com.user.bean.User;
+import jp.beans.User;
 
 public class DBconnect {
 
 
-	public static Connection createConnction() {
+	public static Connection createConnection() {
 		Connection con =null;
 		String url ="jdbc:oracle:thin:@ee417.c7clh2c6565n.eu-west-1.rds.amazonaws.com:1521:EE417";
 		

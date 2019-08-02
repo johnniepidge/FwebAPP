@@ -1,10 +1,13 @@
-package com.login.controller;
+package jp.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,8 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.con.util.DBconnect;
-import con.logindao.BookDao;
+import jp.beans.Books;
+import jp.model.BookDao;
+import jp.util.DBconnect;
 
 @WebServlet("/BookCon")
 public class BookCon extends HttpServlet {
@@ -23,34 +27,23 @@ public class BookCon extends HttpServlet {
     Statement stat = null;
     ResultSet rs = null;
 
-
-	public void doGET(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+ 
+	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
 	response.setContentType("text/html");
 	PrintWriter out=response.getWriter();
+	System.out.println(" it is in the book con");
 	
 	BookDao bookdao=new BookDao();
-	out.print(bookdao.toString());
+	System.out.println(request.getParameter("SV"));
+	
+	HttpSession session =request.getSession();
+	int Bid =Integer.valueOf(request.getParameter("SV"));
 	try {
-		con =DBconnect.createConnction();
-		stat=con.createStatement();
-		rs =stat.executeQuery("SELECT * FROM JP_BOOK");
-		System.out.println(con+" bookcont");
-		while(rs.next()) {
-			bookdao.addBooks(rs);
-			System.out.println(bookdao);
-		}
-		HttpSession session =request.getSession();
-		session.setAttribute("BOOK", bookdao);
-		
+		BookDao.addBooks(Bid, session);
 		request.getRequestDispatcher("/JSP/UserPg.jsp").forward(request, response);;
-		System.out.println(bookdao.toString() +"added");
-		
-	} catch (Exception e) {
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-
-	
-	
-	}
-
+}
 }

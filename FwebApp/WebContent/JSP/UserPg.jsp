@@ -6,21 +6,28 @@
 <meta charset="UTF-8">
 <title>User</title>
 <link rel="stylesheet" type="text\css" href="<%=request.getContextPath()%>/CSS/Lout.css">
-<%@page import="com.con.util.DBconnect,java.sql.*,java.util.ArrayList,com.user.bean.Books" %>
-<%request.getAttribute("BOOK");%>
+<%@page import="jp.util.DBconnect,java.sql.*,java.util.List,jp.beans.Books,jp.model.BookDao" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
-<h1>Welcome to NuLibray </h1>
+<h1>Welcome ${USER.getFname()} </h1>
 <br>
 <body>
-<form method="GET" action="/BookCon" name="Books">
-<select>
-<option name ="Books available" action value="test"> Test</option>
-<c:forEach items='${BOOK}' var ="BDBV" >
-<option value="ID"> ${BDBV.ID}   
+
+<%  
+List<Books> list=BookDao.getAllBooks();  
+request.setAttribute("list",list);  
+%> 
+ 
+ <form method="POST" action="<%=request.getContextPath()%>/BookCon" name="Books">
+<select name="SV">
+<c:forEach items='${list}' var ="BDBV" >
+<option value='${BDBV.getId()}'> ${BDBV.getId()} - ${BDBV.getTitle()} - ${BDBV.getAuthor()}  
 </option>
 </c:forEach>
-
 </select>
-</form >
+<input type="submit" value='ADDBOOK' name="ADD"></input>
+</form  >
+ 
+ 
 </body>
 </html>
